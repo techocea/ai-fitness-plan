@@ -13,14 +13,15 @@ export default defineSchema({
     userId: v.string(),
     name: v.string(),
     workoutPlan: v.object({
-      schedule: v.array(
+      schedule: v.array(v.string()),
+      exercises: v.array(
         v.object({
           day: v.string(),
           routines: v.array(
             v.object({
               name: v.string(),
               sets: v.optional(v.number()),
-              reps: v.optional(v.string()),
+              reps: v.optional(v.number()),
               duration: v.optional(v.string()),
               description: v.optional(v.string()),
               exercises: v.optional(v.array(v.string())),
